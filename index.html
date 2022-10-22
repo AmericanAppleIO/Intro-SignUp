@@ -1,359 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-
-  <title>Frontend Mentor | Intro component with sign up form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-    * {
-      font-family: poppins, sans-serif;
-      font-size: 16px;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-image: url("bg-intro-mobile.png")
-      background-size: cover;
-      background-color: hsl(0, 100%, 74%);
-    }
-
-    .intro-container {
-      color: white;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      margin: 70px 20px 0 20px;
-    }
-
-    .intro-container h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      letter-spacing: .02rem;
-      line-height: 1.2;
-    }
-
-    .intro-container p {
-      margin-top: 20px;
-      font-size: 1rem;
-      letter-spacing: .02rem;
-      line-height: 1.67;
-    }
-
-    .form-container {
-      flex: 1;
-      margin: 50px 10px;
-    }
-
-    .blue-box {
-      background: hsl(248, 32%, 49%);
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 1rem;
-      letter-spacing: .02rem;
-      font-weight: 300;
-      box-shadow: 3px 8px hsla(0, 0%, 1%, 0.165);
-      margin: 0 20px 0 20px;
-    }
-
-    .blue-box p {
-      justify-content: center;
-      align-items: center;
-      margin: 10px;
-      color: white;
-      text-align: center;
-    }
-
-    .blue-box span {
-      font-weight: 600;
-    }
-
-    .blue-box:hover {
-      filter: saturate(1.5);
-      transition: ease 0.3s;
-    }
-
-    .form {
-      padding: 30px 40px;
-      background: white;
-      margin: 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      box-shadow: 3px 8px hsla(0, 0%, 1%, 0.165);
-    }
-
-    .form-control {
-      margin-bottom: 10px;
-      padding-bottom: 20px;
-      position: relative;
-    }
-
-    .form-control input {
-      border: 2px solid #f0f0f0;
-      border-radius: 4px;
-      display: block;
-      font-family: inherit;
-      font-size: 14px;
-      padding: 10px;
-      width: 100%;
-    }
-
-    .form-control input:focus {
-      outline: 0;
-      border-color: #777;
-    }
-
-    .form-control.success input {
-      border-color: hsl(154, 59%, 51%);
-    }
-
-    .form-control.error input {
-      border-color: hsl(0, 100%, 74%);
-    }
-
-    .form-control i {
-      visibility: hidden;
-      position: absolute;
-      top: 14px;
-      right: 10px;
-    }
-
-    .form-control.success i.fa-check-circle {
-      color: hsl(0, 100%, 74%);
-      visibility: visible;
-    }
-
-    .form-control small {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      visibility: hidden;
-    }
-
-    .form-control.error small {
-      visibility: visible;
-      color: hsl(0, 100%, 74%);
-      font-style: italic;
-      font-size: 0.8rem;
-    }
-
-    .form button {
-      width: 100%;
-      margin-top: 20px;
-      background: hsl(154, 59%, 51%);
-      color: white;
-      font-weight: 500;
-      border: none;
-      border-radius: 4px;
-      height: 3rem;
-      text-transform: uppercase;
-      letter-spacing: 0.8rem;
-      box-shadow: hsl(154, 59%, 51%) 2px 2px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      filter: saturate(1.5);
-      transition: ease 0.3s;
-    }
-
-    .message {
-      margin: 10px 18px 10px 18px;
-      text-align: center;
-      color: hsl(246, 25%, 77%);
-    }
-
-    .message p {
-      font-size: .75rem;
-      font-weight: 400;
-    }
-
-    .message span {
-      color: hsl(0, 100%, 74%);
-      font-weight: 500;
-      font-size: .75rem;
-    }
-
-    footer {
-      text-align: center;
-      color: inherit;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    @media screen and (min-width: 1200px) {
-      body {
-        background-image: url("bg-intro-desktop.png");
-        background-size: cover;
-        background-repeat: repeat;
-        background-color: hsl(0, 100%, 74%);
-      }
-      section {
-        flex-direction: row;
-        margin-left: 50px;
-        margin-right: 50px;
-      }
-      .intro-container {
-        flex: 1;
-        text-align: left;
-        margin: 0px 20px 0px 80px;
-      }
-      .intro-container h1 {
-        max-width: 75%;
-      }
-      .form-container {
-        flex: 1;
-        margin: 0px 80px 0px 20px;
-      }
-    }
-
-  </style>
-
-  <script>
-    const form = document.getElementById("form");
-    const firstName = document.getElementById("first-name");
-    const lastName = document.getElementById("last-name");
-    const email = document.getElementById("email");
-    const password = document.getElementById("password");
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      checkInputs();
-    });
-
-    function checkInputs() {
-      const firstNameValue = firstName.value.trim();
-      const lastNameValue = lastName.value.trim();
-      const emailValue = email.value.trim();
-      const passwordValue = password.value.trim();
-
-      if (firstNameValue === "") {
-        setErrorFor(firstName, "First Name cannot be empty");
-      } else {
-        setSuccessFor(firstName);
-      }
-      if (lastNameValue === "") {
-        setErrorFor(lastName, "First Name cannot be empty");
-      } else {
-        setSuccessFor(lastName);
-      }
-
-      if (emailValue === "") {
-        setErrorFor(email, "Email cannot be blank");
-      } else if (!emailIsValid(emailValue)) {
-        setErrorFor(email, "Not a valid email");
-      } else {
-        setSuccessFor(email);
-      }
-      if (passwordValue === "") {
-        setErrorFor(password, "Password cannot be blank");
-      } else {
-        setSuccessFor(password);
-      }
-    }
-    function setErrorFor(input, message) {
-      const formControl = input.parentElement;
-      const small = formControl.querySelector("small");
-      formControl.className = "form-control error";
-      small.innerText = message;
-    }
-
-    function setSuccessFor(input) {
-      const formControl = input.parentElement;
-      formControl.className = "form-control success";
-    }
-
-    const emailIsValid = (email) => {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    };
-  </script>
-</head>
-<body>
-<main>
-  <section>
-    <div class="intro-container">
-      <h1>Learn to code by watching others</h1>
-<p>
-See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
-  but understanding how developers think is invaluable.
-</p>
-    </div>
-    <div class="form-container">
-      <div class="blue-box">
-        <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
-      </div>
-<form class="form" id="form">
-  <div class="form-control">
-      <input
-        type="text"
-        name="first-name"
-        id="first-name"
-        placeholder="First Name"
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
     />
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small></small>
-  </div>
-  <div class="form-control">
-    <input
-      type="text"
-      name="last-name"
-      id="last-name"
-      placeholder="Last Name"
-      />
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small></small>
-  </div>
-  <div class="form-control">
-    <input
-      type="text"
-      name="email"
-      id="email"
-      placeholder="Email Address"
-      />
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small></small>
-  </div>
-  <div class="form-control">
-    <input
-      type="text"
-      name="password"
-      id="password"
-      placeholder="Password"
-      />
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small></small>
-  </div>
+    <!-- CSS Style Sheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      crossorigin="anonymous"
+    />
 
-  <button type="submit">Claim Your Free Trail</button>
-  <div class="message">
-    <p>
-      By clicking the button, you are agreeing to our <span>Terms and Services</span>
-    </p>
-  </div>
-</form>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="https://www.americanapple.io" target="_blank">AmericanAppleIO</a>.
-  </p>
-</footer>
-</body>
+    <title>Frontend Mentor | Intro component with sign up form</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="intro-container">
+          <h1>Learn to code by watching others</h1>
+          <p>
+            See how experienced developers solve problems in real-time. Watching
+            scripted tutorials is great, but understanding how developers think
+            is invaluable.
+          </p>
+        </div>
+        <div class="form-container">
+          <div class="blue-box">
+            <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
+          </div>
+          <form class="form" id="form">
+            <div class="form-control">
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="First Name"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+            </div>
+            <div class="form-control">
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="Last Name"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+            </div>
+            <div class="form-control">
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Email Address"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+            </div>
+            <div class="form-control">
+              <input
+                type="text"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small></small>
+            </div>
+
+            <button type="submit">Claim Your Free Trial</button>
+            <div class="message">
+              <p>
+                By clicking the button you are agreeing to our
+                <span>Terms and Services</span>
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.americanapple.io"
+          >AmericanAppleIO</a
+        >.
+      </p>
+    </footer>
+    <script src="index.js"></script>
+  </body>
 </html>
