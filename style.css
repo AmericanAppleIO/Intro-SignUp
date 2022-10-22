@@ -191,6 +191,11 @@ footer{
     padding: 10px;
 }
 
+a {
+      text-decoration: none;
+      color: inherit;
+    }
+
 
 @media screen and (min-width: 1200px){
     body{
