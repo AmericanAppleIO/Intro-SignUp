@@ -1,0 +1,222 @@
+* {
+	font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+	box-sizing: border-box;
+}
+
+body{
+    background-image: url("./images/bg-intro-mobile.png");
+    background-size: cover;
+	background-color: hsl(0, 100%, 74%);
+}
+
+
+section{
+	/* margin: 20px; */
+	justify-content:center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.intro-container{
+	/* flex: 1; */
+	color: white;
+	text-align: center;
+	align-items: center; 
+	justify-content: center;
+    margin: 70px 20px 0px 20px;
+}
+
+.intro-container h1{
+	font-size: 2.25rem;
+	font-weight: 700;
+	letter-spacing: .02rem;
+	line-height: 1.2;
+}
+
+.intro-container p{
+	margin-top: 20px;
+	font-size: 1rem;
+	letter-spacing: .02rem;
+	line-height: 1.67;
+}
+
+.form-container {
+	flex: 1;
+	margin: 50px 10px;
+}
+
+.blue-box{
+	background: hsl(248, 32%, 49%);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    letter-spacing: .02rem;
+    font-weight: 300;
+    box-shadow: 3px 8px hsla(0, 0%, 1%, 0.165);
+	margin: 0px 20px 0px 20px;
+}
+
+.blue-box p{
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    color: white;
+    text-align: center;
+}
+
+.blue-box span{
+    font-weight: 600;
+}
+
+.blue-box:hover{
+	filter: saturate(1.5);
+    transition: ease 0.3s;
+}
+
+.form {
+	padding: 30px 40px;	
+	background: white;
+	margin: 20px;
+	border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 3px 8px hsla(0, 0%, 1%, 0.165);
+}
+
+.form-control {
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+
+.form-control input {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+}
+
+.form-control input:focus {
+	outline: 0;
+	border-color: #777;
+}
+
+.form-control.success input {
+	border-color: hsl(154, 59%, 51%);
+}
+
+.form-control.error input {
+	border-color: hsl(0, 100%, 74%);
+}
+
+.form-control i {
+	visibility: hidden;
+	position: absolute;
+	top: 14px;
+	right: 10px;
+}
+
+.form-control.success i.fa-check-circle {
+	color: hsl(154, 59%, 51%);
+	visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+	color: hsl(0, 100%, 74%);
+	visibility: visible;
+}
+
+.form-control small {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	visibility: hidden;
+}
+
+.form-control.error small {
+	visibility: visible;
+    color: hsl(0, 100%, 74%);
+	font-style: italic;
+	font-size: 0.8rem;
+}
+
+.form button {
+	width: 100%;
+	margin-top: 20px;
+    background: hsl(154, 59%, 51%);
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    height: 3rem;
+    text-transform: uppercase;
+    letter-spacing: .08rem;
+    box-shadow: hsl(154, 59%, 51%) 2px 2px;
+    cursor: pointer;
+}
+
+button:hover{
+	filter: saturate(1.5);
+    transition: ease 0.3s;
+}
+
+.message{
+	margin: 10px 18px 10px 18px;
+	text-align: center;
+	color: hsl(246, 25%, 77%);
+}
+
+.message p{
+    font-size: .75rem;
+    font-weight: 400;
+}
+
+.message span{
+	color: hsl(0, 100%, 74%);
+    font-weight: 500;
+    font-size: .75rem;
+}
+
+footer{
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+
+@media screen and (min-width: 1200px){
+    body{
+        background-image: url("./images/bg-intro-desktop.png");
+        background-size: cover;
+        background-repeat: repeat;
+        background-color: hsl(0, 100%, 74%);
+    }
+	section{
+		flex-direction: row;
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+	
+	.intro-container{
+		flex: 1;
+		text-align: left;
+        margin: 0px 20px 0px 80px;
+	}
+
+    .intro-container h1{
+        max-width: 75%;
+    }
+	
+	.form-container{
+		flex: 1;
+        margin: 0px 80px 0px 20px;
+	}
+}
